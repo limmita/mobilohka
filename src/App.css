@@ -1,0 +1,13 @@
+.container-fluid{
+	height: 90vh;
+	background: #dee0de;
+}
+.searchNomer{
+	width: 38%;
+	height: 90vh;
+	border-right: 5px solid #0ba816;
+}
+.tableNomer{
+	height: 90vh;
+    width: 1150px;
+}

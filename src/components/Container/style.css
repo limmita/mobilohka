@@ -1,0 +1,20 @@
+.table {
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    font-size: small;
+}
+.tableNomer{
+	/* overflow: visible; */
+	overflow-y: auto;
+}
+.form-control {
+    margin-bottom: 3px;
+    width: 162px;
+}
+.table-bordered td,
+.table-bordered th{
+	vertical-align: middle;
+	text-align: center;
+}
