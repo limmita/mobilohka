@@ -3,16 +3,11 @@ import TableList from './TableList';
 import $ from "jquery";
 import './style.css';
 
-class TableNomer extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            dataTable: ''
-        }
-    }
-    componentDidMount(){
+import { connect } from 'react-redux'
 
- 
+class TableNomer extends Component {
+
+    componentDidMount(){
         let url = 'https://south.pp.ua/destop/index.php';
         $.ajax({
           method: "POST",
@@ -21,22 +16,29 @@ class TableNomer extends Component {
         })
           .done((msg) => {
             let dataServer = JSON.parse(msg);
-            this.setState({dataTable: dataServer});
+            this.props.adddispath(dataServer);
           });
     }
     
-
     
     render() {
-        
         return (
-
         <div className="tableNomer table-responsive-sm">
-            <TableList tables={this.state.dataTable} />
+            <TableList tables={this.props.dataTablelist.numberlist} />
         </div>
         );
     }
     
 }
 
-export default TableNomer;
+export default connect(
+  state => ({
+    dataTablelist:state
+  }),
+  dispatch => ({
+    adddispath:(dataServer) =>{
+        dispatch({ type: "NUMBER_LIST_SUCCESS", payload: dataServer })
+    }
+  })
+)(TableNomer);
+
