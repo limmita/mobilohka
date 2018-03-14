@@ -13,8 +13,29 @@
     margin-bottom: 3px;
     width: 162px;
 }
-.table-bordered td,
-.table-bordered th{
+.table-hover td,
+.table-hover th{
 	vertical-align: middle;
 	text-align: center;
+}
+.status, .rezult{
+    width: 20px;
+    padding-left: 4px;
+    border: none;
+    background: #dee0de;
+}
+.data_posilki, .dovidka{
+    width: 120px;
+    border: none;
+    background: #dee0de;
+}
+.number, .imei{
+    border: none;
+    background: #dee0de;
+}
+.number{
+    width: 90px;
+}
+.imei{
+    width: 110px;
 }

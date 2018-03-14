@@ -8,8 +8,8 @@ export default function TableList(props){
 
 
    //{tableElement}
-     let tableElement = Object.values(tbs).map((tabl,i) => 
-        <TableArticle key={i}
+     let tableElement = Object.values(tbs).map((tabl) => 
+        <TableArticle key={tabl.id}
             tabl={tabl}
         
       />);
@@ -18,7 +18,7 @@ export default function TableList(props){
             
         return (
 
-        <table className="table table-striped table-bordered table-sm" >
+        <table className="table  table-hover  table-sm" >
             <thead className="thead-dark">
                  <tr>
                     <th>Номер</th>
