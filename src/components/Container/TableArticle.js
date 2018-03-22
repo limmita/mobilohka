@@ -9,7 +9,11 @@ class TableArticle extends Component {
             dataPosilki: '',
             dovidka: '',
             number: '',
-            imei: ''
+            imei: '',
+            checked: false,
+            status:'',
+            result:'',
+            primitka:''
         }
 
     render() {
@@ -42,7 +46,14 @@ class TableArticle extends Component {
                 </td>
                 <td  style={styleBorder}>{fabula}</td>
                 <td>{article.tabl.date_vvod}</td>
-                <td><input  type="checkbox" ></input></td>
+                <td>
+                    <input className="armor"  type="checkbox"
+                    data-id={article.tabl.id}
+                    checked={this.state.checked}
+                    onChange={this.checkedChange}
+                    ref={(input) => { this.checkedInput = input }}
+
+                    ></input></td>
                 <td>
                     <input className="data_posilki" type="date"
                         data-id={article.tabl.id}
@@ -51,7 +62,12 @@ class TableArticle extends Component {
                         value={this.state.dataPosilki || article.tabl.data_posilki}>                
                      </input>
                  </td>
-                <td><input className="status" type="text" defaultValue={article.tabl.status}></input></td>
+                <td><input className="status" type="text"
+                   data-id={article.tabl.id}
+                   onChange={this.statusChange}
+                   ref={(input) => { this.statusInput = input }}
+                   value={this.state.status || article.tabl.status}>
+                </input></td>
                 <td>
                 <input className="dovidka" type="date"
                     data-id={article.tabl.id}
@@ -59,10 +75,68 @@ class TableArticle extends Component {
                     ref={(input) => { this.dovidkaInput = input }}
                     value={this.state.dovidka || article.tabl.dovidka}>
                 </input></td>
-                <td><input className="rezult" type="text" defaultValue={article.tabl.result}></input></td>
-                <td><input  type="text" defaultValue={article.tabl.primitka}></input></td>
+
+
+
+                <td><input className="result" type="text"
+                    data-id={article.tabl.id}
+                    onChange={this.resultChange}
+                    ref={(input) => { this.resultInput = input }}
+                    value={this.state.result || article.tabl.result}>
+                    </input></td>
+
+
+
+
+
+                <td><input className="primitka"  type="text"
+                    data-id={article.tabl.id}
+                    onChange={this.primitkaChange}
+                    ref={(input) => { this.primitkaInput = input }}
+                    value={this.state.primitka || article.tabl.primitka}>
+                    </input></td>
             </tr>
         );
+    }
+    primitkaChange = (event) =>{
+        let id, val, pole
+        id = $(this.primitkaInput).data('id')
+        val = event.target.value
+        pole = $(this.primitkaInput).attr("class")
+        this.setBd(id, val, pole)
+            this.setState({
+                primitka: val
+            })
+    }
+    resultChange = (event) =>{
+        let id, val, pole
+        id = $(this.resultInput).data('id')
+        val = event.target.value
+        pole = $(this.resultInput).attr("class")
+        this.setBd(id, val, pole)
+            this.setState({
+                result: val
+            })
+    }
+    statusChange = (event) =>{
+        let id, val, pole
+        id = $(this.statusInput).data('id')
+        val = event.target.value
+        pole = $(this.statusInput).attr("class")
+        this.setBd(id, val, pole)
+            this.setState({
+                status: val
+            })
+    }
+    checkedChange = (event) =>{
+        let id, val, pole
+        id = $(this.checkedInput).data('id')
+        val = !this.state.checked
+        pole = $(this.checkedInput).attr("class")
+        this.setBd(id, val, pole)
+            this.setState({
+                checked: !this.state.checked
+            })
     }
     imeiChange = (event) =>{
         let id, val, pole
