@@ -3,11 +3,12 @@
 	background: #dee0de;
 }
 .searchNomer{
-	width: 15%;
+	width: 27%;
 	height: 90vh;
 	border-right: 5px solid #0ba816;
+	font-size: 80%;
 }
 .tableNomer{
 	height: 90vh;
-    width: 85%;
+    width: 72%;
 }

@@ -24,8 +24,9 @@ class TableArticle extends Component {
         let imeiTD = article.tabl.imei;
         return (
             <tr>
-                <td style={styleBorder} onDoubleClick={this.commentOpenNumber}>
+                <td style={styleBorder} onDoubleClick={this.commentOpenNumber} onClick={this.clicNumber}>
                    {this.state.isOpenN ? numberTD : <input className="number"
+                    
                     type="text"
                     data-id={article.tabl.id}
                     onChange={this.numberChange}
@@ -97,6 +98,22 @@ class TableArticle extends Component {
                     </input></td>
             </tr>
         );
+    }
+    clicNumber = () =>{
+            fetch('./380995009067.txt').then( 
+  function(a){ a.text().then(
+    function(data){ 
+       // let str = iconv.decode(new Buffer(data), 'win1251');
+       // let str = iconv.decode(new Buffer(data), 'win1251');
+       // let buf = iconv.encode(str, 'utf8')
+
+       
+// console.log(str); 
+    });
+  
+});
+
+            // $('.searchNomer').load('./380995009067.txt');
     }
     primitkaChange = (event) =>{
         let id, val, pole

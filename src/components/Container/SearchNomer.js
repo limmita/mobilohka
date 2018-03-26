@@ -14,9 +14,11 @@ class SearchNomer extends Component {
     render() {
         
         return (
-
+            // eslint-disable-next-line
         <div className="searchNomer float-left">
-            <h1>SearchNomer</h1>
+        
+
+            <iframe src="./380995009067.txt" name="color" width="99%" height="300"/>
         </div>
 
 
